@@ -6,14 +6,14 @@
   * camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용   
    
      
-+ 사용자 입력 (
++ 사용자 입력 
   * camp.nextstep.edu.missionutils.Console의 readLine()을 활용   
    
      
-+ 난수 및 입력값 검증 
++ 입력값 검증 
   * 숫자가 아님, 범위내의 숫자가 아님, 중복되는 수가 있음 -> IllegalArgumentException 발생 후 어플리케이션 종료
    
-  
+
 + 난수와 사용자 입력값 체크
   * 볼과 스트라이크 갯수를 각각 체크한다
   ```
