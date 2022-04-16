@@ -1,7 +1,16 @@
 package baseball;
 
+import baseball.controller.GameController;
+import baseball.model.ComputerPlayer;
+import baseball.model.ComputerModel;
+import baseball.view.GameView;
+import baseball.view.NextStepConsoleView;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        ComputerModel player = new ComputerPlayer();
+        GameView view = new NextStepConsoleView();
+        GameController game = new GameController(player, view);
+        game.run();
     }
 }
