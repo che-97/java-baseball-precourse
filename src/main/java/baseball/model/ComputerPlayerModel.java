@@ -6,7 +6,7 @@ import java.util.LinkedHashSet;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
-public class ComputerPlayer implements ComputerModel {
+public class ComputerPlayerModel implements ComputerModel {
     @Override
     public LinkedHashSet<Integer> getRandomNumber() {
 
