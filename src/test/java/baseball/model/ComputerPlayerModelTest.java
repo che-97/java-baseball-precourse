@@ -27,7 +27,7 @@ class ComputerPlayerModelTest {
 
     @DisplayName("[model] ball과 strike 갯수 체크, 1 ball 1 strike")
     @Test
-    void givenTwoSet_whenCheckBallAndStrike_thenReturnsBallAndStrike() throws Exception {
+    void givenTwoSet_whenCallCheckBallAndStrikeMethod_thenReturnsBallAndStrike() throws Exception {
         //Given
         LinkedHashSet<Integer> randomNumberSet = new LinkedHashSet<>();
         randomNumberSet.add(1);
