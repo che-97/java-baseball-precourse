@@ -14,9 +14,9 @@ public class GameController {
 
     //랜덤 수 저장
 
-    public GameController(ComputerModel player, GameView view){
-       this.computer = player;
-       this.view = view;
+    public GameController(ComputerModel computerModel, GameView gameView){
+       this.computer = computerModel;
+       this.view = gameView;
     }
 
     public void run() {

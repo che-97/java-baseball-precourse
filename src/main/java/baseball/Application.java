@@ -8,9 +8,9 @@ import baseball.view.NextStepConsoleView;
 
 public class Application {
     public static void main(String[] args) {
-        ComputerModel player = new ComputerPlayerModel();
-        GameView view = new NextStepConsoleView();
-        GameController game = new GameController(player, view);
+        ComputerModel computerModel = new ComputerPlayerModel();
+        GameView gameView = new NextStepConsoleView();
+        GameController game = new GameController(computerModel, gameView);
         game.run();
     }
 }
