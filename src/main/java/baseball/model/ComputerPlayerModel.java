@@ -7,14 +7,15 @@ import java.util.LinkedHashSet;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class ComputerPlayerModel implements ComputerModel {
+
     @Override
     public LinkedHashSet<Integer> getRandomNumber() {
 
         LinkedHashSet<Integer> randomNumberSet = new LinkedHashSet<>();
 
-        while (randomNumberSet.size() != Digit.LENGTH.getNumber()){
+        while (randomNumberSet.size() != Digit.LENGTH.getNumber()) {
             int randomNum = pickNumberInRange(Digit.START_RANGE.getNumber()
-                                                ,Digit.END_RANGE.getNumber());
+                , Digit.END_RANGE.getNumber());
             randomNumberSet.add(randomNum);
         }
 
@@ -22,14 +23,16 @@ public class ComputerPlayerModel implements ComputerModel {
     }
 
     @Override
-    public int[] checkBallAndStrike(LinkedHashSet<Integer> randomNumberSet, LinkedHashSet<Integer> userInputSet) {
-        int strike = getStrikeNumber(randomNumberSet,userInputSet);
-        int ball = getBallNumber(randomNumberSet,userInputSet);
-        ball = ball-strike;
-        return new int[] {ball, strike};
+    public int[] checkBallAndStrike(LinkedHashSet<Integer> randomNumberSet,
+        LinkedHashSet<Integer> userInputSet) {
+        int strike = getStrikeNumber(randomNumberSet, userInputSet);
+        int ball = getBallNumber(randomNumberSet, userInputSet);
+        ball = ball - strike;
+        return new int[]{ball, strike};
     }
 
-    public int getStrikeNumber(LinkedHashSet<Integer> randomNumberSet, LinkedHashSet<Integer> userInputSet) {
+    public int getStrikeNumber(LinkedHashSet<Integer> randomNumberSet,
+        LinkedHashSet<Integer> userInputSet) {
         int strike = 0;
 
         int randomNumOrder = 0;
@@ -41,23 +44,26 @@ public class ComputerPlayerModel implements ComputerModel {
         return strike;
     }
 
-    public int matchUserInputSet(int randomNumber, LinkedHashSet<Integer> userInputSet, int randomNumOrder, int strike) {
+    public int matchUserInputSet(int randomNumber, LinkedHashSet<Integer> userInputSet,
+        int randomNumOrder, int strike) {
         int userInputOrder = 0;
         for (int userInput : userInputSet) {
-            strike = isStrike(randomNumOrder,userInputOrder,randomNumber,userInput,strike);
+            strike = isStrike(randomNumOrder, userInputOrder, randomNumber, userInput, strike);
             userInputOrder++;
         }
         return strike;
     }
 
-    public int isStrike(int randomNumOrder, int userInputOrder, int randomNumber, int userInput, int strike) {
-        if(randomNumOrder == userInputOrder && userInput == randomNumber){
+    public int isStrike(int randomNumOrder, int userInputOrder, int randomNumber, int userInput,
+        int strike) {
+        if (randomNumOrder == userInputOrder && userInput == randomNumber) {
             strike++;
         }
         return strike;
     }
 
-    public int getBallNumber(LinkedHashSet<Integer> randomNumberSet, LinkedHashSet<Integer> userInputSet) {
+    public int getBallNumber(LinkedHashSet<Integer> randomNumberSet,
+        LinkedHashSet<Integer> userInputSet) {
         userInputSet.retainAll(randomNumberSet);
         return userInputSet.size();
     }

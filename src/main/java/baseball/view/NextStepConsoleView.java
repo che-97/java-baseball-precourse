@@ -13,7 +13,7 @@ import static baseball.util.ValidationUtil.validateReservedWord;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
-public class NextStepConsoleView implements GameView{
+public class NextStepConsoleView implements GameView {
 
     @Override
     public void getReqInputMessage() {
@@ -33,13 +33,13 @@ public class NextStepConsoleView implements GameView{
     @Override
     public void getBallCntAndStrikeCntMessage(int ball, int strike) {
         String message = "";
-        if(ball != 0){
-            message += ball+ BaseBall.BALL.getString()+" ";
+        if (ball != 0) {
+            message += ball + BaseBall.BALL.getString() + " ";
         }
-        if(strike != 0){
-            message += strike+ BaseBall.STRIKE.getString();
+        if (strike != 0) {
+            message += strike + BaseBall.STRIKE.getString();
         }
-        if(message.isEmpty()){
+        if (message.isEmpty()) {
             message = BaseBall.NOTHING.getString();
         }
         System.out.println(message);
@@ -51,13 +51,13 @@ public class NextStepConsoleView implements GameView{
         validateConvertNumber(userInput);
         validateDigitsInRange(userInput);
         LinkedHashSet<Integer> userInputSet = this.userInputStringToSet(userInput);
-        validateDuplicate(userInput.length(),userInputSet.size());
+        validateDuplicate(userInput.length(), userInputSet.size());
         return userInputSet;
     }
 
-    public LinkedHashSet<Integer> userInputStringToSet(String userInput){
+    public LinkedHashSet<Integer> userInputStringToSet(String userInput) {
         LinkedHashSet<Integer> userInputSet = new LinkedHashSet<>();
-        for (int i = 0; i<Digit.LENGTH.getNumber(); i++){
+        for (int i = 0; i < Digit.LENGTH.getNumber(); i++) {
             userInputSet.add(Character.getNumericValue(userInput.charAt(i)));
         }
         return userInputSet;

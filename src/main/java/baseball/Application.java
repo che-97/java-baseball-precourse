@@ -7,6 +7,7 @@ import baseball.view.GameView;
 import baseball.view.NextStepConsoleView;
 
 public class Application {
+
     public static void main(String[] args) {
         ComputerModel computerModel = new ComputerPlayerModel();
         GameView gameView = new NextStepConsoleView();

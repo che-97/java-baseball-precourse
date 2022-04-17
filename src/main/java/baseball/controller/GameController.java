@@ -14,9 +14,9 @@ public class GameController {
 
     //랜덤 수 저장
 
-    public GameController(ComputerModel computerModel, GameView gameView){
-       this.computer = computerModel;
-       this.view = gameView;
+    public GameController(ComputerModel computerModel, GameView gameView) {
+        this.computer = computerModel;
+        this.view = gameView;
     }
 
     public void run() {
@@ -38,27 +38,28 @@ public class GameController {
         }
     }
 
-    public void compareUntilStrike(LinkedHashSet<Integer> randomNumberSet){
+    public void compareUntilStrike(LinkedHashSet<Integer> randomNumberSet) {
         boolean isStrikeAll = false;
-        while (!isStrikeAll){
+        while (!isStrikeAll) {
             view.getReqInputMessage();
             LinkedHashSet<Integer> userInputSet = view.getInputNumber();
 
-            isStrikeAll = isStrikeAll(randomNumberSet,userInputSet);
+            isStrikeAll = isStrikeAll(randomNumberSet, userInputSet);
 
             userInputSet.clear();
             userInputSet = null;
         }
     }
 
-    public boolean isStrikeAll(LinkedHashSet<Integer> randomNumberSet, LinkedHashSet<Integer> userInputSet){
-        int[] result = computer.checkBallAndStrike(randomNumberSet,userInputSet);
+    public boolean isStrikeAll(LinkedHashSet<Integer> randomNumberSet,
+        LinkedHashSet<Integer> userInputSet) {
+        int[] result = computer.checkBallAndStrike(randomNumberSet, userInputSet);
 
         int ball = result[0];
         int strike = result[1];
 
-        view.getBallCntAndStrikeCntMessage(ball,strike);
-        if(strike == Digit.LENGTH.getNumber()){
+        view.getBallCntAndStrikeCntMessage(ball, strike);
+        if (strike == Digit.LENGTH.getNumber()) {
             return true;
         }
         return false;

@@ -9,19 +9,20 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ComputerPlayerModelTest {
+
     private final ComputerPlayerModel model = new ComputerPlayerModel();
 
     @DisplayName("[model] 램덤 수 생성")
     @Test
     void whenCallRandomNumberMethod_thenReturnsRandomSet() throws Exception {
         assertRandomNumberInRangeTest(
-                () -> {
-                    assertThat(model.getRandomNumber())
-                            .isNotEmpty()
-                            .hasSize(3)
-                            .startsWith(1,3,5);
-                },
-                1, 3,3,5
+            () -> {
+                assertThat(model.getRandomNumber())
+                    .isNotEmpty()
+                    .hasSize(3)
+                    .startsWith(1, 3, 5);
+            },
+            1, 3, 3, 5
         );
     }
 
@@ -40,10 +41,10 @@ class ComputerPlayerModelTest {
         userInputSet.add(8);
 
         // When & then
-        assertThat(model.checkBallAndStrike(randomNumberSet,userInputSet))
-                .isNotEmpty()
-                .hasSize(2)
-                .startsWith(1,1);
+        assertThat(model.checkBallAndStrike(randomNumberSet, userInputSet))
+            .isNotEmpty()
+            .hasSize(2)
+            .startsWith(1, 1);
     }
 
 }
